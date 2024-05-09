@@ -32,13 +32,13 @@ class DoublyLinkedList:
         current_node = self._head
 
         if index == 0:
-            print("YES I AM RUNNING!")
+            
 
             new_node = ListNode(value)
             self._head = new_node
             new_node.next = current_node
         elif index == self._size:
-            print("NOW! THIS SHOULD RUN !")
+          
             current_node = self._tail
             new_node = ListNode(value)
             current_node.next = new_node
@@ -139,7 +139,22 @@ class DoublyLinkedList:
         del(node_to_remove)
         return value
 
+class ListBasedQueue(DoublyLinkedList):
+    def __init__(self):
+        super().__init__()
+    def __repr__(self):
+        plural = '' if self._size == 1 else 's'
+        values = ','.join([c for c in self])
+        return f'<ListBasedQueue ({self._size} element{plural}): [{values}]'
+    
+    
+    def enqueue(self, data):
+        self.insert(0, data)
 
+
+
+    def dequeue(self):
+        return self.pop()
 
 
 
